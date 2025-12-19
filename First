@@ -1,0 +1,53 @@
+
+const products = [
+  {
+    id: 1,
+    name: "Wireless Earbuds",
+    price: "$79.99",
+    supplier: "Amazon",
+    affiliateLink: "https://amazon.com/?tag=YOUR_AFFILIATE_ID",
+    image: "https://via.placeholder.com/300"
+  },
+  {
+    id: 2,
+    name: "Smart Fitness Watch",
+    price: "$129.99",
+    supplier: "AliExpress",
+    affiliateLink: "https://aliexpress.com/?aff_fcid=YOUR_ID",
+    image: "https://via.placeholder.com/300"
+  }
+];
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold mb-6 text-center">Supplier Marketplace</h1>
+      <p className="text-center text-gray-600 mb-10">
+        We connect you directly with trusted suppliers. Orders are fulfilled by them.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {products.map((product) => (
+          <div key={product.id} className="bg-white rounded-2xl shadow p-4">
+            <img src={product.image} alt={product.name} className="rounded-xl mb-4" />
+            <h2 className="text-xl font-semibold">{product.name}</h2>
+            <p className="text-gray-500">Supplier: {product.supplier}</p>
+            <p className="text-lg font-bold mt-2">{product.price}</p>
+            <a
+              href={product.affiliateLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mt-4 text-center bg-black text-white py-2 rounded-xl hover:opacity-90"
+            >
+              Buy from Supplier
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <footer className="text-center text-sm text-gray-400 mt-12">
+        © 2025 Supplier Marketplace. We earn commissions from suppliers.
+      </footer>
+    </div>
+  );
+}
